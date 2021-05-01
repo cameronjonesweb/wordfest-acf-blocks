@@ -1,0 +1,15 @@
+.testimonial-blockquote {
+	padding: 1rem 2rem;
+}
+
+.testimonial-text {
+	font-size: 5rem;
+}
+
+.testimonial-author {
+	font-weight: bold;
+}
+
+.testimonial-blockquote span {
+	display: block;
+}

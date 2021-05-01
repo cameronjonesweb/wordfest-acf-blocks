@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Testimonial Block Template.
  *
@@ -8,6 +7,8 @@
  * @param   bool $is_preview True during AJAX preview.
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
+
+extract( $args );
 
 // Create id attribute allowing for custom "anchor" value.
 $id = 'testimonial-' . $block['id'];
@@ -33,19 +34,11 @@ $background_color = get_field('background_color');
 $text_color = get_field('text_color');
 
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <blockquote class="testimonial-blockquote">
-        <span class="testimonial-text"><?php echo $text; ?></span>
-        <span class="testimonial-author"><?php echo $author; ?></span>
-        <span class="testimonial-role"><?php echo $role; ?></span>
-    </blockquote>
-    <div class="testimonial-image">
-        <?php echo wp_get_attachment_image( $image, 'full' ); ?>
-    </div>
-    <style type="text/css">
-        #<?php echo $id; ?> {
-            background: <?php echo $background_color; ?>;
-            color: <?php echo $text_color; ?>;
-        }
-    </style>
+<blockquote class="testimonial-blockquote" style="background: <?php echo $background_color; ?>; color: <?php echo $text_color; ?>;">
+    <span class="testimonial-text"><?php echo $text; ?></span>
+    <span class="testimonial-author"><?php echo $author; ?></span>
+    <span class="testimonial-role"><?php echo $role; ?></span>
+</blockquote>
+<div class="testimonial-image">
+    <?php echo wp_get_attachment_image( $image, 'full' ); ?>
 </div>
